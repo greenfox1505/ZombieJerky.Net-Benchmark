@@ -6,3 +6,10 @@
    - name: toFile
      local_action: copy content="{{CPU.stdout}}" dest="./results/{{ansible_nodename}}.cpuinfo"
 
+   - name: Copy Benchmark
+     command: npm i greenfox1505/ZombieJerky.Net-Benchmark
+   - name: Run Benchmark
+     command: ./node_modules/.bin/AnsibleBenchmark
+     register: results
+   - name: Benchmark To File
+     local_action: copy content="{{results.stdout}}" dest="./results/{{ansible_nodename}}.bench"
