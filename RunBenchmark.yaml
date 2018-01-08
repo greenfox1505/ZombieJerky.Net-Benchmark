@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+   - name: CPU Info
+     command: cat /proc/cpuinfo
+     register: CPU
+   - name: toFile
+     local_action: copy content="{{CPU.stdout}}" dest="./results/{{ansible_nodename}}.cpuinfo"
+

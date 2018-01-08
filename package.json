@@ -1,0 +1,17 @@
+{
+  "name": "ansible_test_hardware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "AnsibleBenchmark": "./index.js"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  }
+}
