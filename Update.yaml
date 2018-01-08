@@ -1,0 +1,18 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: all
+  tasks:
+   - name: Upgrade
+     apt:
+       upgrade: dist
+   - name: Install Dev Suite
+     with_items: [ nodejs, npm, git]
+     apt:
+       name: "{{item}}"
+       state: installed
+
+  vars_prompt:
+   - name: "ansible_sudo_pass"
+     prompt: "Sudo password"
+     private: yes
+  become: true
