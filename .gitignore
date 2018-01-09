@@ -1,3 +1,4 @@
+hosts
 results/*.iperf3
 results/*.JSbench1
 results/*.cpuinfo
