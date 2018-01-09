@@ -14,3 +14,5 @@
      register: results
    - name: Benchmark To File
      local_action: copy content="{{results.stdout}}" dest="./results/{{ansible_nodename}}.bench"
+   - name: Remove Benchmark
+     command: npm r greenfox1505/ZombieJerky.Net-Benchmark
