@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+- hosts: all
+  serial: 1
+  tasks:
+   - name: Network Benchmark
+     command: iperf3 -c hermes.zombiejerky.net
+     register: results
+   - name: Write Benchmark
+     local_action: copy content="{{results.stdout}}" dest="./results/{{ansible_nodename}}.iperf3"
+

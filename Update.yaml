@@ -5,10 +5,13 @@
    - name: Upgrade
      apt:
        upgrade: dist
-   - name: Install Dev Suite
-     with_items: [ nodejs, npm, git]
+   - name: Install Test Suite
      apt:
-       name: "{{item}}"
+       name: [ nodejs, npm, git, iperf3 ]
+       state: installed
+   - name: Install Ryan's Favs
+     apt:
+       name: [ byobu , htop , openjdk-8-jre , gcc , g++ , nodejs, npm, git, iperf3 , nano ]
        state: installed
 
   vars_prompt:

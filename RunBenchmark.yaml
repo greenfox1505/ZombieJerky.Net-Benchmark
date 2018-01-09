@@ -1,18 +1,3 @@
 #!/usr/bin/env ansible-playbook
-- hosts: all
-  tasks:
-   - name: CPU Info
-     command: cat /proc/cpuinfo
-     register: CPU
-   - name: toFile
-     local_action: copy content="{{CPU.stdout}}" dest="./results/{{ansible_nodename}}.cpuinfo"
-
-   - name: Copy Benchmark
-     command: npm i greenfox1505/ZombieJerky.Net-Benchmark
-   - name: Run Benchmark
-     command: ./node_modules/.bin/AnsibleBenchmark
-     register: results
-   - name: Benchmark To File
-     local_action: copy content="{{results.stdout}}" dest="./results/{{ansible_nodename}}.bench"
-   - name: Remove Benchmark
-     command: npm r greenfox1505/ZombieJerky.Net-Benchmark
+- include: iPerf3.yaml
+- include: JSBenchmark.yaml

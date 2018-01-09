@@ -1,2 +1,4 @@
-results
+results/*.iperf3
+results/*.JSbench1
+results/*.cpuinfo
 node_modules
