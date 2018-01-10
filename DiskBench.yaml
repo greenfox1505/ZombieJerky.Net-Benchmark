@@ -1,0 +1,8 @@
+#!/usr/bin/env ansible-playbook
+- hosts: all
+  tasks:
+   - name: Benchmark Disk
+     command: for i in {1..10}; do sync; dd if=/dev/zero of=tempfile bs=1M count=4096; sync; rm tempfile; done
+     register: results
+   - name: Benchmark To File
+     local_action: copy content="{{results.stdout}}" dest="./results/{{ansible_nodename}}.DiskBench"

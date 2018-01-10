@@ -1,3 +1,4 @@
 #!/usr/bin/env ansible-playbook
 - include: iPerf3.yaml
 - include: JSBenchmark.yaml
+- include: RunBenchmark.yaml
